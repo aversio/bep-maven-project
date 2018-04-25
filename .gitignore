@@ -64,8 +64,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-.gitignore
 .idea/
 mvnwebapp2.iml
-pom.xml
-src/
