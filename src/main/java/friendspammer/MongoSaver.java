@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MongoSaver {
+
     static Logger logger = LoggerFactory.getLogger(MongoSaver.class);
 
     public static boolean saveEmail(String to, String from, String subject, String text, Boolean html) {
