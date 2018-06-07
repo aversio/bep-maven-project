@@ -8,10 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MongoSaver {
+    private static Logger logger = LoggerFactory.getLogger(MongoSaver.class);
 
-    static Logger logger = LoggerFactory.getLogger(MongoSaver.class);
-
-    public static boolean saveEmail(String to, String from, String subject, String text, Boolean html) {
+    static boolean saveEmail(String to, String from, String subject, String text, Boolean html) {
         String userName = "YOUR NAME";
         String password = "YOUR PASS";
         String database = "YOUR DB";

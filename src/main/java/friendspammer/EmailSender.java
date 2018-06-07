@@ -49,7 +49,7 @@ public class EmailSender {
 			MongoSaver.saveEmail(to, "spammer@spamer.com", subject, messageBody, asHtml);
 
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+            e.printStackTrace();
 		}
 	}
 
