@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class EmailSender {
-    static Logger logger = LoggerFactory.getLogger(EmailSender.class);
+    private static Logger logger = LoggerFactory.getLogger(EmailSender.class);
 	
 	public static void sendEmail(String subject, String to, String messageBody, boolean asHtml) {
 
@@ -70,23 +70,23 @@ public class EmailSender {
 				  });
 		try {
 
-			for (int index = 0; index < toList.length; index++) {
-			
-				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress("spammer@spammer.com"));
-				message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(toList[index]));
-				message.setSubject(subject);
-				
-				if (asHtml) {
-						message.setContent(messageBody, "text/html; charset=utf-8");
-				} else {
-					message.setText(messageBody);	
-				}
-				Transport.send(message);
-	
-				logger.info("Done");
-			}
+            for (String aToList : toList) {
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("spammer@spammer.com"));
+                message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(aToList));
+                message.setSubject(subject);
+
+                if (asHtml) {
+                    message.setContent(messageBody, "text/html; charset=utf-8");
+                } else {
+                    message.setText(messageBody);
+                }
+                Transport.send(message);
+
+                logger.info("Done");
+            }
 
 		} catch (MessagingException e) {
 			e.printStackTrace();
