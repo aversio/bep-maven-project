@@ -13,18 +13,18 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
   # https://github.com/wercker/step-maven
-    - java/maven:
+    - wercker/maven:
       goals: package
       cache_repo: true
       version: 3.5.2
 
 sonar:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # http://devcenter.wercker.com/docs/steps/index.html
+  # Steps make up the actions in your pipeline
+  # Read more about steps on our dev center:
+  # http://devcenter.wercker.com/docs/steps/index.html
   steps:
   # https://github.com/wercker/step-maven
-    - java/maven:
+    - wercker/maven:
       goals: clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar -Dmaven.test.failure.ignore=true -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=aversio-github -Dsonar.login=ddf3393120931d10a3917d0ea
              3561396d1d11c87
       cache_repo: true
