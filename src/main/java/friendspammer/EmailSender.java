@@ -54,7 +54,6 @@ public class EmailSender {
 	}
 
 	public static void sendEmail(String subject, String[] toList, String messageBody, boolean asHtml) {
-
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.mailtrap.io");
 		props.put("mail.smtp.port", "2525");
@@ -90,7 +89,7 @@ public class EmailSender {
 			}
 
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+			e.printStackTrace();
 		}
 	}
 	

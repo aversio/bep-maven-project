@@ -7,8 +7,6 @@ import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.UnknownHostException;
-
 public class MongoSaver {
 
     static Logger logger = LoggerFactory.getLogger(MongoSaver.class);
@@ -43,7 +41,7 @@ public class MongoSaver {
         return success;
     }
 
-    public static void main(String... args) throws UnknownHostException {
+    public static void main(String... args) {
         logger.info("test");
     }
 
